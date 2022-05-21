@@ -2,21 +2,21 @@ import java.time.LocalDate;
 
 public class Main {
     //Задание 1
-    public static void printYear(int year) {
-        System.out.println(year + " - високосный год");
-    }
-
-    public static void printYear2(int year) {
-        System.out.println(year + " - не високосный год");
+    private static void printeYear(int year) {
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            System.out.println(year + " - високосный год");
+        } else {
+            System.out.println(year + " - не високосный год");
+        }
     }
 
     //Задание 2
-    public static void printDevice(int clientOS, int clientDeviceYear) {
+    private static void printeYear(int clientOS, int clientDeviceYear) {
         int currentYear = LocalDate.now().getYear();
         if (clientDeviceYear > currentYear) {
-            System.out.print("Установите lite версию для ");
+            System.out.print(" Установите lite версию для ");
         } else {
-            System.out.print("Установите версию для ");
+            System.out.print(" Установите версию для ");
         }
         if (clientOS == 1) {
             System.out.print("Android");
@@ -25,50 +25,42 @@ public class Main {
         }
     }
 
-        // Задание 3
-        public static int printDistance (int deliveryDistance){
+    // Задание 3
+    private static int getDistance(int deliveryDistance) {
         int daYs = 0;
-            if (deliveryDistance<=20){
-                daYs=1;
-            } else if (deliveryDistance>20&&deliveryDistance<=60) {
-                daYs=2;
-            } else if (deliveryDistance>60&&deliveryDistance<100) {
-                daYs=3;
-            }
-
-
-            return daYs;
+        if (deliveryDistance <= 20) {
+            daYs = 1;
+        } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
+            daYs = 2;
+        } else if (deliveryDistance > 60 && deliveryDistance < 100) {
+            daYs = 3;
         }
+        return daYs;
+    }
 
-
-        public static void main (String[]args){
+        public static void main (String[]args) {
             // Задание 1
             int year = 100;
-            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-                printYear(year);
-            } else {
-                printYear2(year);
-            }
+            printeYear(year);
+
 
             // Задание 2
             int clientOS = 1;
             int clientDeviceYear = 2023;
-            printDevice(clientOS, clientDeviceYear);
+            printeYear(clientOS, clientDeviceYear);
 
-
-            System.out.println("\n");
-
+             System.out.println("\n");
 
             // Задание 3
             int deliveryDistance = 95;
-            int printDistance = printDistance(deliveryDistance);
-            System.out.println("Потребуется дней "+printDistance);
+            int printDistance = getDistance(deliveryDistance);
+            {
+                System.out.println("Потребуется дней " + printDistance);
+            }
 
         }
-
-
-
     }
+
 
 
 
